@@ -1,0 +1,14 @@
+services:
+    GaylordP\EmailBundle\EventListener\SetFromListener:
+        arguments:
+            - '@twig'
+            - '@doctrine.orm.entity_manager'
+            - '@parameter_bag'
+        tags:
+            - 'kernel.event_subscriber'
+
+    GaylordP\EmailBundle\Repository\EmailRepository:
+        arguments:
+            - '@doctrine'
+        tags:
+            - 'doctrine.repository_service'
