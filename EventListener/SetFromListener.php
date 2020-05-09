@@ -16,16 +16,16 @@ class SetFromListener implements EventSubscriberInterface
 {
     private $twig;
     private $em;
-    private $parameters;
+    private $parameterEmail;
 
     public function __construct(
         Environment $twig,
         EntityManagerInterface $em,
-        ParameterBagInterface $parameters
+        array $parameterEmail
     ) {
         $this->twig = $twig;
         $this->em = $em;
-        $this->parameters = $parameters;
+        $this->parameterEmail = $parameterEmail;
     }
 
     public static function getSubscribedEvents(): array
@@ -43,7 +43,7 @@ class SetFromListener implements EventSubscriberInterface
             return;
         }
 
-        $email->from(new Address($this->parameters->get('email')['from_email'], $this->parameters->get('email')['from_name']));
+        $email->from(new Address($this->parameterEmail['from_email'], $this->parameterEmail['from_name']));
 
         $entity = new EmailEntity();
         $entity->setFromEmail($email->getFrom()[0]->getAddress());

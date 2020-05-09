@@ -3,7 +3,7 @@ services:
         arguments:
             - '@twig'
             - '@doctrine.orm.entity_manager'
-            - '@parameter_bag'
+            - '%email%'
         tags:
             - 'kernel.event_subscriber'
 
