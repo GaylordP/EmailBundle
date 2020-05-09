@@ -5,7 +5,6 @@ namespace GaylordP\EmailBundle\EventListener;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use GaylordP\EmailBundle\Entity\Email as EmailEntity;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Mailer\Event\MessageEvent;
 use Symfony\Component\Mime\Address;
